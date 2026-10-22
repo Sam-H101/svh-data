@@ -36,4 +36,4 @@ held by the main host server and never stored in this repository.
 
 | Path | What |
 |---|---|
-| [`ui/exchange/`](ui/exchange/) | The exchange window with a silver-to-gold row: ActionScript source, build steps and tools. Built into `lobby_menu.gfx` (release `data-v1`). |
+| [`ui/exchange/`](ui/exchange/) | The exchange window with a silver-to-gold row: ActionScript source, build steps and tools. Built into `lobby_menu.gfx` (releases `data-v1`, `data-v2`: the gold "+" opens it too). |
