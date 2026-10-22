@@ -2,7 +2,7 @@
 
 Status: prototype, **not yet seen in the game: the client will not load it as a loose file, in any folder tried**
 (P0, 2026-10-22, below). It compiles into a copy of the game's `lobby_menu.gfx`. The server side
-works end to end. Design and server side: [`docs/SILVER-TO-GOLD.md`](../../../docs/SILVER-TO-GOLD.md).
+works end to end. Design and server side: `docs/SILVER-TO-GOLD.md` in the svh server repository.
 
 ## P0 result (v0.69d0, 2026-10-22)
 
@@ -16,7 +16,7 @@ works end to end. Design and server side: [`docs/SILVER-TO-GOLD.md`](../../../do
 | The request the BUY button sends, `exchange_premium_money(0x40000005)`, passed to the stock client's own callback handler (Frida, as `ExternalInterface.call` passes it) | works: the client forwards it as `46 03`; server log `[premium] bought 5 gold for 1250 silver` (rate 250); money push `root.set_account_money {generic_money: 98750, premium_money: 100005}`; save `[98750, 100005, …]`; ledger row `buy_gold`, kind 250, silver −1250, gold +5; `svh econ-check` reports the account ok |
 | Stock gold-to-silver row, EXCHANGE clicked in the window (1 gold) | works: `[premium] exchanged 1 gold for 250 silver`; the client shows 100 250 silver and 99 999 gold |
 
-Details and the evidence for "not loaded": [`docs/BALANCE-PLAN.md`](../../../docs/BALANCE-PLAN.md)
+Details and the evidence for "not loaded": `docs/BALANCE-PLAN.md` in the svh server repository
 §3.1. The game install was restored after each run: the recursive listing of `game\resources\`
 and the top-level listing of `game\` (names, sizes, times) match the ones taken before.
 
@@ -57,4 +57,4 @@ Open. A packed archive is out (the archives are signed by the publisher), and P0
 client ignores loose files: `resources.NN\<path>` (75 and 76 tried) and
 `game\resources\<path>` alike. No loose-file route is left. The client DLL has to serve the
 patched file when the client loads `resources/flash_movies/lobby_menu/lobby_menu.gfx`, or patch
-the archive signature check in memory. See [`docs/BALANCE-PLAN.md`](../../../docs/BALANCE-PLAN.md) §3.1.
+the archive signature check in memory. See `docs/BALANCE-PLAN.md` in the svh server repository §3.1.
